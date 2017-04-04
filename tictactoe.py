@@ -1,3 +1,4 @@
+from random import randint
 board = ['X', 2, 'X', 4, 5, 6, 7, 8, 9]
 
 def display_board(board):
@@ -47,7 +48,15 @@ def win_check(mark):
     else:
         return False
 
+def choose_first():
+    first = randint(1, 2)
+    if first == 1:
+        return "X"
+    else:
+        return "Y"
+
+player = choose_first()
 display_board(board)
-player_input("X")
+player_input(player)
 display_board(board)
-print win_check('X')
+print win_check(player)
