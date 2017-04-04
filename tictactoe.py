@@ -1,4 +1,4 @@
-board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+board = ['X', 2, 'X', 4, 5, 6, 7, 8, 9]
 
 def display_board(board):
     start = 0
@@ -27,6 +27,27 @@ def player_input(player):
         else:
             print "That is not a valid move. Enter the number of the square."
 
+def win_check(mark):
+    if mark == board[0] and mark == board[1] and mark == board[2]:
+        return True
+    elif mark == board[3] and mark == board[4] and mark == board[5]:
+        return True
+    elif mark == board[6] and mark == board[7] and mark == board[8]:
+        return True
+    elif mark == board[0] and mark == board[3] and mark == board[6]:
+        return True
+    elif mark == board[1] and mark == board[4] and mark == board[7]:
+        return True
+    elif mark == board[2] and mark == board[5] and mark == board[8]:
+        return True
+    elif mark == board[0] and mark == board[4] and mark == board[8]:
+        return True
+    elif mark == board[2] and mark == board[4] and mark == board[6]:
+        return True
+    else:
+        return False
+
 display_board(board)
 player_input("X")
 display_board(board)
+print win_check('X')
