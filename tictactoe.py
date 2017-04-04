@@ -55,8 +55,18 @@ def choose_first():
     else:
         return "Y"
 
+def full_board_check():
+    nums = 0
+    for i in range(0, 9):
+        if i in board:
+            nums += 1
+    if nums > 0:
+        return False
+    return True
+
 player = choose_first()
 display_board(board)
 player_input(player)
 display_board(board)
 print win_check(player)
+print full_board_check()
