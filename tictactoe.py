@@ -64,9 +64,24 @@ def full_board_check():
         return False
     return True
 
-player = choose_first()
-display_board(board)
-player_input(player)
-display_board(board)
-print win_check(player)
-print full_board_check()
+def replay():
+    correct_input = False
+    while not correct_input:
+        print "Would you like to play again? [y/n]"
+        again = raw_input()
+        if again == 'y':
+            correct_input = True
+            return True
+        elif again == 'n':
+            correct_input = True
+            return False
+        else:
+            print "Invalid choice. [y/n]"
+
+if replay():
+    player = choose_first()
+    display_board(board)
+    player_input(player)
+    display_board(board)
+    print win_check(player)
+    print full_board_check()
